@@ -1,0 +1,14 @@
+<!--templates/blog_detail.html-->
+{% extends 'base.html' %}
+
+{% block title %}{{ blog.text }} - My Blog {% endblock %}
+
+{% block content %}
+    <h1>{{ blog.text}}</h1>
+    <p>Posted on: {{ blog.date_added}}</p>
+    <ul>
+        {% for post in blog.post_set.all %}
+            <li>{{ post.text}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

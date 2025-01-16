@@ -1,0 +1,13 @@
+<!--templates/index.html-->
+{% extends 'blogs/base.html' %}
+
+{% block title %}Home - My Blog{% endblock %}
+
+{% block content %}
+    <h1>Welcome to My Blog!</h1>
+    <ul>
+        {% for blog in blogs %}
+            <li><a href="{% url 'blogs:blog_detail' blog.id %}">{{ blog.text }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
