@@ -6,9 +6,21 @@
 {% block content %}
     <h1>{{ blog.text}}</h1>
     <p>Posted on: {{ blog.date_added}}</p>
+
+    <a href="{% url 'blogs:new_post' blog.id %}">Add new post</a>
+
+
     <ul>
         {% for post in posts %}
-            <li>{{ post.text}}</li>
+            <li>
+                {{ post.text}}
+                <a href="{% url 'blogs:edit_post' post.id %}">Editing</a>
+                <a href="{% url 'blogs:delete_post' post.id %}"
+                   onclick="return confirm('Are you sure?')">Delete
+                </a>
+
+
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
